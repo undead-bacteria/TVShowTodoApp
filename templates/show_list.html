@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container mt-5" style="max-width: 900px; margin: 0 auto;">
+<div class="container mt-5" style="max-width: 900px; margin: 0 auto;" x-data="{showCount: {{ shows|length }} }">
   <!-- Page Title and Button -->
   <h1 class="mb-4 text-primary">Television Shows</h1>
+  <h4 class="mb-4">Total Shows: <strong x-text="showCount"></strong></h4>
   <a href="{% url 'show_create' %}" class="btn btn-lg btn-success mb-4">
     <i class="bi bi-plus-circle-fill"></i> Add New Show
   </a>
