@@ -5,10 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Television Shows</title>
-  <!-- Bootstrap CDN for styling -->
+  <!-- Bootstrap Static for styling -->
   <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
-  <!-- Bootstrap CDN for icons -->
+  <!-- Bootstrap Static for icons -->
   <link href="{% static 'assets/css/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <!-- Other head content -->
+  <script src="{% static 'assets/js/htmx.min.js' %}"></script>
+  <meta name="csrf-token" content="{{ csrf_token }}">
 </head>
 <body>
   <div class="container mt-4">

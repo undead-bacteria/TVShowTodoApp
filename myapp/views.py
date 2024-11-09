@@ -1,5 +1,6 @@
 from django.views import generic
 from django.urls import reverse_lazy
+from django.http import JsonResponse
 from .models import TelevisionShow
 from .forms import TelevisionShowForm
 
@@ -49,7 +50,12 @@ class ShowDeleteView(generic.DeleteView):
   model = TelevisionShow
   template_name = 'show_confirm_delete.html'
   context_object_name = 'show'
-  success_url = '/'
   
   def get_success_url(self):
     return reverse_lazy('show_list')
+  
+  def form_valid(self, form):
+    response = super().form_valid(form)
+    if self.request.htmx:
+      return JsonResponse({'redirect': self.get_success_url()})
+    return response
